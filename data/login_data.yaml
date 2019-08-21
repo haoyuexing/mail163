@@ -1,0 +1,12 @@
+test_login:
+  test_login_001:
+    username: "hitfeat"
+    password: "hitfeat123000"
+  test_login_002:
+    username: "hitfeat"
+    password: "hitfeat1230"
+    marks: "xfail"
+#  test_login_003:
+#    username: "hitfeat"
+#    password: "hitfeat123000"
+#    marks: "xfail"
