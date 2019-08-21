@@ -7,7 +7,7 @@ from base.base_page import Page
 
 class TestSend:
 
-    @pytest.fixture(params=["Chrome", "Firefox"], autouse=True)
+    @pytest.fixture(params=["Firefox"], autouse=True)
     def setup(self, request):
         exec("from selenium import webdriver")
         self.driver = eval("webdriver.%s()" % request.param)
