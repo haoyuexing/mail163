@@ -10,7 +10,7 @@ class TestLogin:
 
     def setup(self):
         exec("from selenium import webdriver")
-        self.driver = eval("webdriver.%s()" % "Firefox")
+        self.driver = webdriver.Firefox()
         self.driver.get("https://mail.163.com")
         self.page = Page(self.driver)
 
