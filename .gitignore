@@ -1,6 +1,6 @@
 report
 .idea
-.coverage
+.coverage*
 .pytest_cache
 __pycache__
 geckodriver.log
