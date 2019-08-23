@@ -8,23 +8,17 @@ from base.base_page import Page
 
 class TestLogin:
 
-    def setup(self):
+    @pytest.fixture(params=["Firefox"], autouse=True)
+    def setup(self, request):
         exec("from selenium import webdriver")
-        self.driver = webdriver.Firefox()
+        self.driver = eval("webdriver.%s()" % request.param)
         self.driver.get("https://mail.163.com")
         self.page = Page(self.driver)
 
-    # @pytest.fixture(params=["Firefox"], autouse=True)
-    # def setup(self, request):
-    #     exec("from selenium import webdriver")
-    #     self.driver = eval("webdriver.%s()" % request.param)
-    #     self.driver.get("https://mail.163.com")
-    #     self.page = Page(self.driver)
-    #
-    #     def teardown():
-    #         self.driver.quit()
-    #
-    #     request.addfinalizer(teardown)
+        def teardown():
+            self.driver.quit()
+
+        request.addfinalizer(teardown)
 
     @allure.description_html("""
 <!doctype html>
